@@ -1,5 +1,13 @@
-require 'win32ole'
-require 'win32/screenshot'
+require 'jruby-win32ole'
+require 'java'
+
+include_class 'java.awt.Dimension'
+include_class 'java.awt.Rectangle'
+include_class 'java.awt.Robot'
+include_class 'java.awt.Toolkit'
+include_class 'java.awt.event.InputEvent'
+include_class 'java.awt.image.BufferedImage'
+include_class 'javax.imageio.ImageIO'
 
 module TE3270
   module Emulators
@@ -118,8 +126,13 @@ module TE3270
       def screenshot(filename)
         File.delete(filename) if File.exists?(filename)
         system.Visible = true unless visible
-        title = system.WindowTitle
-        Win32::Screenshot::Take.of(:window, title: title).write(filename)
+        toolkit = Toolkit::getDefaultToolkit()
+        screen_size = toolkit.getScreenSize()
+        rect = Rectangle.new(screen_size)
+        robot = Robot.new
+        image = robot.createScreenCapture(rect)
+        f = java::io::File.new(filename)
+        ImageIO::write(image, "png", f)
         system.Visible = false unless visible
       end
 
