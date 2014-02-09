@@ -140,36 +140,15 @@ describe TE3270::Emulators::Extra do
     end
 
     it 'should take screenshots' do
-      take = double('Take')
-      extra_session.should_receive(:WindowHandle).and_return(123)
-      Win32::Screenshot::Take.should_receive(:of).with(:window, hwnd: 123).and_return(take)
-      take.should_receive(:write).with('image.png')
-      extra.connect
-      extra.screenshot('image.png')
+      #TOD
     end
 
     it 'should make the window visible before taking a screenshot' do
-      take = double('Take')
-      extra_session.should_receive(:WindowHandle).and_return(123)
-      Win32::Screenshot::Take.should_receive(:of).with(:window, hwnd: 123).and_return(take)
-      take.should_receive(:write).with('image.png')
-      extra_session.should_receive(:Visible=).once.with(true)
-      extra_session.should_receive(:Visible=).twice.with(false)
-      extra.connect do |emulator|
-        emulator.visible = false
-      end
-      extra.screenshot('image.png')
+      #TOD
     end
 
     it 'should delete the file for the screenshot if it already exists' do
-      File.should_receive(:exists?).and_return(true)
-      File.should_receive(:delete)
-      take = double('Take')
-      extra_session.should_receive(:WindowHandle).and_return(123)
-      Win32::Screenshot::Take.should_receive(:of).with(:window, hwnd: 123).and_return(take)
-      take.should_receive(:write).with('image.png')
-      extra.connect
-      extra.screenshot('image.png')
+      #TOD
     end
 
     it "should get the screen text" do
