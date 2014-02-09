@@ -1,7 +1,6 @@
 require 'jruby-win32ole'
 
 require 'java'
-
 include_class 'java.awt.Dimension'
 include_class 'java.awt.Rectangle'
 include_class 'java.awt.Robot'
