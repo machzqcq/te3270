@@ -1,4 +1,15 @@
 require 'jruby-win32ole'
+
+require 'java'
+
+include_class 'java.awt.Dimension'
+include_class 'java.awt.Rectangle'
+include_class 'java.awt.Robot'
+include_class 'java.awt.Toolkit'
+include_class 'java.awt.event.InputEvent'
+include_class 'java.awt.image.BufferedImage'
+include_class 'javax.imageio.ImageIO'
+
 module TE3270
   module Emulators
     #
