@@ -1,6 +1,4 @@
 require 'jruby-win32ole'
-
-
 module TE3270
   module Emulators
     #
