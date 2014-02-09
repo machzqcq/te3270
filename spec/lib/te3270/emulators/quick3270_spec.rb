@@ -130,6 +130,7 @@ describe TE3270::Emulators::Quick3270 do
 
     it 'should make the window visible before taking a screenshot' do
       #TOD
+
     end
 
     it 'should get the screen text' do
