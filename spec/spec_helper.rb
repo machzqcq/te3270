@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'te3270'
-require 'win32ole'
+require 'jruby-win32ole'
 require 'win32/screenshot'
 
 def extra_system
