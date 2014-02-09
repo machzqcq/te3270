@@ -136,6 +136,7 @@ module TE3270
       def screenshot(filename)
         File.delete(filename) if File.exists?(filename)
         session.Visible = true unless visible
+
         toolkit = Toolkit::getDefaultToolkit()
         screen_size = toolkit.getScreenSize()
         rect = Rectangle.new(screen_size)
@@ -143,6 +144,7 @@ module TE3270
         image = robot.createScreenCapture(rect)
         f = java::io::File.new(filename)
         ImageIO::write(image, "png", f)
+
         session.Visible = false unless visible
       end
 
