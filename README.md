@@ -1,4 +1,4 @@
-# TE3270 [for jruby]
+# TE3270 for jruby
 
 This gem can be used to drive a 3270 terminal emulator in a jruby environment. The code has been tested on jruby 1.7.10
 You have to have a supported emulator installed on the
