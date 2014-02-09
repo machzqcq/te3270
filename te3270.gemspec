@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'te3270/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "te3270"
+  spec.name = "te3270-jruby"
   spec.version       = TE3270::VERSION
   spec.platform      = Gem::Platform::CURRENT
-  spec.authors       = ["Jeffrey S. Morgan","Pradeep K. Macharla"]
-  spec.email         = ["jeff.morgan@leandog.com","macharla.pradeep.kumar@gmail.com"]
+  spec.authors = ["Pradeep K. Macharla"]
+  spec.email = ["pradeep@seleniumframework.com"]
   spec.description   = %q{Automates a 3270 Terminal Emulator}
   spec.summary       = %q{Automates a 3270 Terminal Emulator}
-  spec.homepage      = "http://github.com/cheezy/te3270"
+  spec.homepage = "http://github.com/machzqcq/te3270"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'page_navigation', '>= 0.9'
-  spec.add_dependency 'win32screenshot'
+  spec.add_dependency 'jruby-win32ole'
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
