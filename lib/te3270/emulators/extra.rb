@@ -1,5 +1,5 @@
-require 'win32ole'
-require 'win32/screenshot'
+require 'jruby-win32ole'
+
 
 module TE3270
   module Emulators
@@ -127,8 +127,13 @@ module TE3270
       def screenshot(filename)
         File.delete(filename) if File.exists?(filename)
         session.Visible = true unless visible
-        hwnd = session.WindowHandle
-        Win32::Screenshot::Take.of(:window, hwnd: hwnd).write(filename)
+        toolkit = Toolkit::getDefaultToolkit()
+        screen_size = toolkit.getScreenSize()
+        rect = Rectangle.new(screen_size)
+        robot = Robot.new
+        image = robot.createScreenCapture(rect)
+        f = java::io::File.new(filename)
+        ImageIO::write(image, "png", f)
         session.Visible = false unless visible
       end
 
