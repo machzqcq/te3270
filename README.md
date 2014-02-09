@@ -10,7 +10,8 @@ emulators as time permits.
 
 ## Documentation
 
-You can view the RDocs for this project [here](http://rdoc.info/github/machzqcq/te3270/master/frames).
+You can view the RDocs for this project [here](http://rubydoc.info/gems/te3270-jruby/0.1/frames).
+
 
 ## Installation
 
