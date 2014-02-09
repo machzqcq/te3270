@@ -9,13 +9,13 @@ emulators as time permits.
 
 ## Documentation
 
-You can view the RDocs for this project [here](http://rdoc.info/github/cheezy/te3270/master/frames).
+You can view the RDocs for this project [here](http://rdoc.info/github/machzqcq/te3270/master/frames).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'te3270'
+    gem 'te3270-jruby'
 
 And then execute:
 
@@ -23,7 +23,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install te3270
+    $ gem install te3270-jruby
 
 ## Usage
 
