@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.name = "te3270-jruby"
   spec.version       = TE3270::VERSION
   spec.platform      = Gem::Platform::CURRENT
-  spec.authors = ["Pradeep K. Macharla"]
-  spec.email = ["pradeep@seleniumframework.com"]
+  spec.authors = ["Pradeep K. Macharla", "Jeffrey S. Morgan"]
+  spec.email = ["pradeep@seleniumframework.com", "jeff.morgan@leandog.com"]
   spec.description   = %q{Automates a 3270 Terminal Emulator}
   spec.summary       = %q{Automates a 3270 Terminal Emulator}
   spec.homepage = "http://github.com/machzqcq/te3270"
