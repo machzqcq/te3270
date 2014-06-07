@@ -11,7 +11,7 @@ module TE3270
   #
   # @example using a screen in a Scenario
   #   on MyScreen do |screen|
-  #     screen.name = 'Cheezy'
+  #     screen.name = 'loginScreen'
   #   end
   #
   # If you plan to use the +navigate_to+ method you will need to ensure
