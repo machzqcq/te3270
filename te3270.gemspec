@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
+  spec.extensions = ["ext/mkrf_conf.rb"]
 
   spec.add_dependency 'page_navigation', '>= 0.9'
   spec.add_dependency 'jruby-win32ole'
