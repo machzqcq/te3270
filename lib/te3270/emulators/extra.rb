@@ -1,14 +1,3 @@
-require 'jruby-win32ole'
-
-require 'java'
-include_class 'java.awt.Dimension'
-include_class 'java.awt.Rectangle'
-include_class 'java.awt.Robot'
-include_class 'java.awt.Toolkit'
-include_class 'java.awt.event.InputEvent'
-include_class 'java.awt.image.BufferedImage'
-include_class 'javax.imageio.ImageIO'
-
 module TE3270
   module Emulators
     #
@@ -19,6 +8,24 @@ module TE3270
     class Extra
 
       attr_writer :session_file, :visible, :window_state, :max_wait_time
+
+      def initialize
+        if RUBY_PLATFORM == "java"
+          require 'jruby-win32ole'
+          require 'java'
+          include_class 'java.awt.Dimension'
+          include_class 'java.awt.Rectangle'
+          include_class 'java.awt.Robot'
+          include_class 'java.awt.Toolkit'
+          include_class 'java.awt.event.InputEvent'
+          include_class 'java.awt.image.BufferedImage'
+          include_class 'javax.imageio.ImageIO'
+        else
+          require 'win32ole'
+          require 'win32/screenshot'
+        end
+      end
+
 
 
       #
@@ -136,6 +143,7 @@ module TE3270
         File.delete(filename) if File.exists?(filename)
         session.Visible = true unless visible
 
+        if RUBY_PLATFORM == "java"
         toolkit = Toolkit::getDefaultToolkit()
         screen_size = toolkit.getScreenSize()
         rect = Rectangle.new(screen_size)
@@ -143,6 +151,10 @@ module TE3270
         image = robot.createScreenCapture(rect)
         f = java::io::File.new(filename)
         ImageIO::write(image, "png", f)
+        else
+          hwnd = session.WindowHandle
+          Win32::Screenshot::Take.of(:window, hwnd: hwnd).write(filename)
+        end
 
         session.Visible = false unless visible
       end

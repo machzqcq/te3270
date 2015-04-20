@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
   spec.extensions = ["ext/mkrf_conf.rb"]
 
   spec.add_dependency 'page_navigation', '>= 0.9'
-  spec.add_dependency 'jruby-win32ole'
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
