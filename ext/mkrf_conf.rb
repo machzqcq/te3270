@@ -1,6 +1,8 @@
 # Borrowed from http://www.programmersparadox.com/2012/05/21/gemspec-loading-dependent-gems-based-on-the-users-system/
 # The author mentions that this is not the right way to do when installing on different rubies like mruby, jruby, but
 # seems there is no other solution at this time, if a single gem has to work on both mruby and jruby
+require 'rubygems/dependency_installer.rb'
+installer = Gem::DependencyInstaller.new
 
 begin
   if RUBY_VERSION > "1.7" and RUBY_PLATFORM == "java"
